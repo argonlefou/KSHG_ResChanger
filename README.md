@@ -1,5 +1,5 @@
 # KSHG_ResChanger
-Resolution patcher for "silent Hill : The Arcade" TTX game.
+Resolution patcher for "Silent Hill : The Arcade" TTX game.
 
 1 - Run the patcher, and select the "KSHG_no_cursor.exe" or "KSHG.exe" you want to edit.  
 2 - Fill X and Y values for your desired resolution.  
