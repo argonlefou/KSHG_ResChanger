@@ -72,7 +72,7 @@ namespace KSHG_ResChanger
                         }
 
                         //Pushing original value parameter for SetCursor call is removing mouse cursor on my computer, 
-                        //whereas using "KSHG_noCursor.exe" - which is pushing 0 as parameter - still shows the  "wait" spinning cursor. 
+                        //whereas using "KSHG_noCursor.exe" - which has NOPed instruction instead - still shows the  "wait" spinning cursor. 
                         //No guarantees on this patch...test to try.  
                         if (Chk_cursor.Checked)
                         {
