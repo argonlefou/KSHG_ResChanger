@@ -139,7 +139,23 @@ namespace KSHG_ResChanger
                         bw.Write(new byte[] { 0xE9, 0xAB, 0x13, 0xEB, 0xFF });
 
                         bw.BaseStream.Seek(0x000ED651, SeekOrigin.Begin);
-                        bw.Write(new byte[] { 0xE9, 0x2F, 0xEC, 0x14, 0x00, 0x90, 0x90, 0x90, 0x90 });                        
+                        bw.Write(new byte[] { 0xE9, 0x2F, 0xEC, 0x14, 0x00, 0x90, 0x90, 0x90, 0x90 });  
+                      
+                        //Fix "No Target" impact drawing issue:
+                        //When the impact is not hitting anythin, the game is drawing a spark effect but it's using a fixed range coordinates :
+                        //[-320,320] for X and [-240,240] for Y to draw the sprite.
+                        //Playing at higher resolutions results in larger coordinates like [-960,960] for X in 1920p,
+                        //so the more you shoot toward the sides, the greater the offset is compared to original awaited values.
+                        WriteLog("Fixing 'NoTarget' drawing...");
+                        bw.BaseStream.Seek(0x002174CB, SeekOrigin.Begin);
+                        bw.Write(new byte[] { 0xD9, 0x44, 0x24, 0x04, 0xD8, 0x0D, 0xBC, 0xFF, 0x67, 0x00, 0xD9, 0x5C, 0x24, 0x04 });
+                        bw.Write(new byte[] { 0xD9, 0x44, 0x24, 0x08, 0xD8, 0x0D, 0xC0, 0xFF, 0x67, 0x00, 0xD9, 0x5C, 0x24, 0x08 });
+                        bw.Write(new byte[] { 0xE8, 0x34, 0x6F, 0xEE, 0xFF });
+                        bw.Write(new byte[] { 0xE9, 0x57, 0x11, 0xED, 0xFF });
+
+                        bw.BaseStream.Seek(0x000E8643, SeekOrigin.Begin);
+                        bw.Write(new byte[] { 0xE9, 0x83, 0xEE, 0x12, 0x00 }); 
+            
                     }
                     MessageBox.Show("Patch success !", "Success", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
                     

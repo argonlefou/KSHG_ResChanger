@@ -194,7 +194,7 @@
             this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "WndMain";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "Silent Hill: The Arcade - Resolution Changer - v2.3";
+            this.Text = "Silent Hill: The Arcade - Resolution Changer - v3.0";
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
